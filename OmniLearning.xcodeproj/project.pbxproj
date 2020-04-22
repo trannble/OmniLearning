@@ -17,6 +17,7 @@
 		0FF9C0CF244FE85D00C238E0 /* Capriola-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9C0C9244FD9D100C238E0 /* Capriola-Regular.ttf */; };
 		0FF9C0D3244FF26000C238E0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0D2244FF26000C238E0 /* RegisterViewController.swift */; };
 		0FF9C0D5244FF39600C238E0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0D4244FF39600C238E0 /* LogInViewController.swift */; };
+		C2A852AEE96C638E73E95D69 /* Pods_OmniLearning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 419EC9D783730A381CEB4967 /* Pods_OmniLearning.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,9 @@
 		0FF9C0CB244FD9FB00C238E0 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Regular.ttf"; path = "../../Capriola,Raleway/Raleway/Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		0FF9C0D2244FF26000C238E0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		0FF9C0D4244FF39600C238E0 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		319A94D472CAF63EFABF0770 /* Pods-OmniLearning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmniLearning.release.xcconfig"; path = "Target Support Files/Pods-OmniLearning/Pods-OmniLearning.release.xcconfig"; sourceTree = "<group>"; };
+		419EC9D783730A381CEB4967 /* Pods_OmniLearning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmniLearning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		463DB563BDEECEEB4CBF359C /* Pods-OmniLearning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmniLearning.debug.xcconfig"; path = "Target Support Files/Pods-OmniLearning/Pods-OmniLearning.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2A852AEE96C638E73E95D69 /* Pods_OmniLearning.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +56,8 @@
 			children = (
 				0FF9C0B0244FC56C00C238E0 /* OmniLearning */,
 				0FF9C0AF244FC56C00C238E0 /* Products */,
+				3902FFFE700BFB8779411CFB /* Pods */,
+				42502A23A72FA4920FD284A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +112,24 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		3902FFFE700BFB8779411CFB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				463DB563BDEECEEB4CBF359C /* Pods-OmniLearning.debug.xcconfig */,
+				319A94D472CAF63EFABF0770 /* Pods-OmniLearning.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		42502A23A72FA4920FD284A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				419EC9D783730A381CEB4967 /* Pods_OmniLearning.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FF9C0C2244FC56D00C238E0 /* Build configuration list for PBXNativeTarget "OmniLearning" */;
 			buildPhases = (
+				4B08CD6A9E9BDB466A49AB7C /* [CP] Check Pods Manifest.lock */,
 				0FF9C0AA244FC56C00C238E0 /* Sources */,
 				0FF9C0AB244FC56C00C238E0 /* Frameworks */,
 				0FF9C0AC244FC56C00C238E0 /* Resources */,
+				15A092BC49B9110E288DEA3C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -172,6 +199,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15A092BC49B9110E288DEA3C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OmniLearning/Pods-OmniLearning-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OmniLearning/Pods-OmniLearning-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OmniLearning/Pods-OmniLearning-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B08CD6A9E9BDB466A49AB7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OmniLearning-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0FF9C0AA244FC56C00C238E0 /* Sources */ = {
@@ -324,6 +393,7 @@
 		};
 		0FF9C0C3244FC56D00C238E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 463DB563BDEECEEB4CBF359C /* Pods-OmniLearning.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = OmniLearning/OmniLearning.entitlements;
@@ -346,6 +416,7 @@
 		};
 		0FF9C0C4244FC56D00C238E0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 319A94D472CAF63EFABF0770 /* Pods-OmniLearning.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = OmniLearning/OmniLearning.entitlements;

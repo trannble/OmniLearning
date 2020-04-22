@@ -1,0 +1,6 @@
+framework module Pods_OmniLearning {
+  umbrella header "Pods-OmniLearning-umbrella.h"
+
+  export *
+  module * { export * }
+}

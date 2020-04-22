@@ -151,5 +151,8 @@
         <namedColor name="Yellow">
             <color red="1" green="0.81568627450980391" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Yellow">
+            <color red="1" green="0.81568627450980391" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
