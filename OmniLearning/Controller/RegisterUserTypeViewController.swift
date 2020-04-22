@@ -1,5 +1,5 @@
 //
-//  LogInViewController.swift
+//  UserTypeViewController.swift
 //  OmniLearning
 //
 //  Created by Tran Le on 4/21/20.
@@ -8,22 +8,12 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class RegisterUserTypeViewController: UIViewController {
 
-    @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var loginError: UILabel!
-    @IBOutlet weak var icon: UIImageView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func loginButtonPressed(_ sender: UIButton) {
-        
     }
     
 

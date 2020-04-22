@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		0FF9C0CF244FE85D00C238E0 /* Capriola-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9C0C9244FD9D100C238E0 /* Capriola-Regular.ttf */; };
 		0FF9C0D3244FF26000C238E0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0D2244FF26000C238E0 /* RegisterViewController.swift */; };
 		0FF9C0D5244FF39600C238E0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0D4244FF39600C238E0 /* LogInViewController.swift */; };
+		0FF9C0D72450051100C238E0 /* RegisterUserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0D62450051100C238E0 /* RegisterUserTypeViewController.swift */; };
+		0FF9C0D9245005D300C238E0 /* LoginUserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0D8245005D300C238E0 /* LoginUserTypeViewController.swift */; };
 		C2A852AEE96C638E73E95D69 /* Pods_OmniLearning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 419EC9D783730A381CEB4967 /* Pods_OmniLearning.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,8 @@
 		0FF9C0CB244FD9FB00C238E0 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Regular.ttf"; path = "../../Capriola,Raleway/Raleway/Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		0FF9C0D2244FF26000C238E0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		0FF9C0D4244FF39600C238E0 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		0FF9C0D62450051100C238E0 /* RegisterUserTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserTypeViewController.swift; sourceTree = "<group>"; };
+		0FF9C0D8245005D300C238E0 /* LoginUserTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserTypeViewController.swift; sourceTree = "<group>"; };
 		319A94D472CAF63EFABF0770 /* Pods-OmniLearning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmniLearning.release.xcconfig"; path = "Target Support Files/Pods-OmniLearning/Pods-OmniLearning.release.xcconfig"; sourceTree = "<group>"; };
 		419EC9D783730A381CEB4967 /* Pods_OmniLearning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmniLearning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		463DB563BDEECEEB4CBF359C /* Pods-OmniLearning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmniLearning.debug.xcconfig"; path = "Target Support Files/Pods-OmniLearning/Pods-OmniLearning.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				0FF9C0B5244FC56C00C238E0 /* WelcomeViewController.swift */,
+				0FF9C0D8245005D300C238E0 /* LoginUserTypeViewController.swift */,
+				0FF9C0D62450051100C238E0 /* RegisterUserTypeViewController.swift */,
 				0FF9C0D2244FF26000C238E0 /* RegisterViewController.swift */,
 				0FF9C0D4244FF39600C238E0 /* LogInViewController.swift */,
 			);
@@ -118,7 +124,6 @@
 				463DB563BDEECEEB4CBF359C /* Pods-OmniLearning.debug.xcconfig */,
 				319A94D472CAF63EFABF0770 /* Pods-OmniLearning.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -252,6 +257,8 @@
 				0FF9C0B4244FC56C00C238E0 /* SceneDelegate.swift in Sources */,
 				0FF9C0D5244FF39600C238E0 /* LogInViewController.swift in Sources */,
 				0FF9C0D3244FF26000C238E0 /* RegisterViewController.swift in Sources */,
+				0FF9C0D72450051100C238E0 /* RegisterUserTypeViewController.swift in Sources */,
+				0FF9C0D9245005D300C238E0 /* LoginUserTypeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

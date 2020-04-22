@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenIcon" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dcJ-gK-FXU">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OLIconRound" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dcJ-gK-FXU">
                                 <rect key="frame" x="57" y="298" width="300" height="300"/>
                             </imageView>
                         </subviews>
@@ -40,7 +40,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="OLIconRound" width="512" height="512"/>
         <image name="launchScreen" width="653" height="1199"/>
-        <image name="launchScreenIcon" width="559" height="559"/>
     </resources>
 </document>

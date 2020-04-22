@@ -10,10 +10,30 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var registerError: UILabel!
+    @IBOutlet weak var icon: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        email.layer.cornerRadius = 20
+        email.clipsToBounds = true
+        
+        password.layer.cornerRadius = 20
+        password.clipsToBounds = true
+        
+        registerButton.layer.cornerRadius = 30
+        registerButton.clipsToBounds = true
+        
+        icon.layer.cornerRadius = 30
+        icon.clipsToBounds = true
+    }
+    
+    @IBAction func registerButtonPressed(_ sender: UIButton) {
+        
     }
     
 

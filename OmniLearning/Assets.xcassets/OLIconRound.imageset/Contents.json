@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "WelcomeBackground-1.pdf",
+      "filename" : "OLIconRound.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "WelcomeBackground.pdf",
+      "filename" : "OLIconRound-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "WelcomeBackground-2.pdf",
+      "filename" : "OLIconRound-2.png",
       "scale" : "3x"
     }
   ],
