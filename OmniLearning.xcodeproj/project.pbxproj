@@ -13,6 +13,10 @@
 		0FF9C0B9244FC56C00C238E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B7244FC56C00C238E0 /* Main.storyboard */; };
 		0FF9C0BB244FC56D00C238E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9C0BA244FC56D00C238E0 /* Assets.xcassets */; };
 		0FF9C0BE244FC56D00C238E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9C0BC244FC56D00C238E0 /* LaunchScreen.storyboard */; };
+		0FF9C0CE244FE85A00C238E0 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9C0CB244FD9FB00C238E0 /* Raleway-Regular.ttf */; };
+		0FF9C0CF244FE85D00C238E0 /* Capriola-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9C0C9244FD9D100C238E0 /* Capriola-Regular.ttf */; };
+		0FF9C0D3244FF26000C238E0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0D2244FF26000C238E0 /* RegisterViewController.swift */; };
+		0FF9C0D5244FF39600C238E0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0D4244FF39600C238E0 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		0FF9C0BD244FC56D00C238E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FF9C0BF244FC56D00C238E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FF9C0C5244FC79600C238E0 /* OmniLearning.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmniLearning.entitlements; sourceTree = "<group>"; };
+		0FF9C0C9244FD9D100C238E0 /* Capriola-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Capriola-Regular.ttf"; path = "../../Capriola,Raleway/Capriola/Capriola-Regular.ttf"; sourceTree = "<group>"; };
+		0FF9C0CB244FD9FB00C238E0 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Regular.ttf"; path = "../../Capriola,Raleway/Raleway/Raleway-Regular.ttf"; sourceTree = "<group>"; };
+		0FF9C0D2244FF26000C238E0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		0FF9C0D4244FF39600C238E0 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +68,12 @@
 				0FF9C0C5244FC79600C238E0 /* OmniLearning.entitlements */,
 				0FF9C0B1244FC56C00C238E0 /* AppDelegate.swift */,
 				0FF9C0B3244FC56C00C238E0 /* SceneDelegate.swift */,
-				0FF9C0C6244FC80400C238E0 /* Controller */,
 				0FF9C0C8244FC88300C238E0 /* View */,
+				0FF9C0C6244FC80400C238E0 /* Controller */,
 				0FF9C0BC244FC56D00C238E0 /* LaunchScreen.storyboard */,
 				0FF9C0BA244FC56D00C238E0 /* Assets.xcassets */,
 				0FF9C0BF244FC56D00C238E0 /* Info.plist */,
+				0FF9C0CD244FDA0600C238E0 /* Fonts */,
 			);
 			path = OmniLearning;
 			sourceTree = "<group>";
@@ -73,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				0FF9C0B5244FC56C00C238E0 /* WelcomeViewController.swift */,
+				0FF9C0D2244FF26000C238E0 /* RegisterViewController.swift */,
+				0FF9C0D4244FF39600C238E0 /* LogInViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -83,6 +94,15 @@
 				0FF9C0B7244FC56C00C238E0 /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0FF9C0CD244FDA0600C238E0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0FF9C0C9244FD9D100C238E0 /* Capriola-Regular.ttf */,
+				0FF9C0CB244FD9FB00C238E0 /* Raleway-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +164,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF9C0BE244FC56D00C238E0 /* LaunchScreen.storyboard in Resources */,
+				0FF9C0CE244FE85A00C238E0 /* Raleway-Regular.ttf in Resources */,
 				0FF9C0BB244FC56D00C238E0 /* Assets.xcassets in Resources */,
+				0FF9C0CF244FE85D00C238E0 /* Capriola-Regular.ttf in Resources */,
 				0FF9C0B9244FC56C00C238E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +181,8 @@
 				0FF9C0B6244FC56C00C238E0 /* WelcomeViewController.swift in Sources */,
 				0FF9C0B2244FC56C00C238E0 /* AppDelegate.swift in Sources */,
 				0FF9C0B4244FC56C00C238E0 /* SceneDelegate.swift in Sources */,
+				0FF9C0D5244FF39600C238E0 /* LogInViewController.swift in Sources */,
+				0FF9C0D3244FF26000C238E0 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
