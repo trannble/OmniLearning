@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0FF9C0B2244FC56C00C238E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B1244FC56C00C238E0 /* AppDelegate.swift */; };
 		0FF9C0B4244FC56C00C238E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B3244FC56C00C238E0 /* SceneDelegate.swift */; };
-		0FF9C0B6244FC56C00C238E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B5244FC56C00C238E0 /* ViewController.swift */; };
+		0FF9C0B6244FC56C00C238E0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B5244FC56C00C238E0 /* WelcomeViewController.swift */; };
 		0FF9C0B9244FC56C00C238E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B7244FC56C00C238E0 /* Main.storyboard */; };
 		0FF9C0BB244FC56D00C238E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9C0BA244FC56D00C238E0 /* Assets.xcassets */; };
 		0FF9C0BE244FC56D00C238E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF9C0BC244FC56D00C238E0 /* LaunchScreen.storyboard */; };
@@ -19,11 +19,12 @@
 		0FF9C0AE244FC56C00C238E0 /* OmniLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF9C0B1244FC56C00C238E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF9C0B3244FC56C00C238E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0FF9C0B5244FC56C00C238E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0FF9C0B5244FC56C00C238E0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		0FF9C0B8244FC56C00C238E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0FF9C0BA244FC56D00C238E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FF9C0BD244FC56D00C238E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FF9C0BF244FC56D00C238E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FF9C0C5244FC79600C238E0 /* OmniLearning.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmniLearning.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +57,32 @@
 		0FF9C0B0244FC56C00C238E0 /* OmniLearning */ = {
 			isa = PBXGroup;
 			children = (
+				0FF9C0C5244FC79600C238E0 /* OmniLearning.entitlements */,
 				0FF9C0B1244FC56C00C238E0 /* AppDelegate.swift */,
 				0FF9C0B3244FC56C00C238E0 /* SceneDelegate.swift */,
-				0FF9C0B5244FC56C00C238E0 /* ViewController.swift */,
-				0FF9C0B7244FC56C00C238E0 /* Main.storyboard */,
-				0FF9C0BA244FC56D00C238E0 /* Assets.xcassets */,
+				0FF9C0C6244FC80400C238E0 /* Controller */,
+				0FF9C0C8244FC88300C238E0 /* View */,
 				0FF9C0BC244FC56D00C238E0 /* LaunchScreen.storyboard */,
+				0FF9C0BA244FC56D00C238E0 /* Assets.xcassets */,
 				0FF9C0BF244FC56D00C238E0 /* Info.plist */,
 			);
 			path = OmniLearning;
+			sourceTree = "<group>";
+		};
+		0FF9C0C6244FC80400C238E0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0FF9C0B5244FC56C00C238E0 /* WelcomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0FF9C0C8244FC88300C238E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0FF9C0B7244FC56C00C238E0 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FF9C0B6244FC56C00C238E0 /* ViewController.swift in Sources */,
+				0FF9C0B6244FC56C00C238E0 /* WelcomeViewController.swift in Sources */,
 				0FF9C0B2244FC56C00C238E0 /* AppDelegate.swift in Sources */,
 				0FF9C0B4244FC56C00C238E0 /* SceneDelegate.swift in Sources */,
 			);
@@ -284,15 +302,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OmniLearning/OmniLearning.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 5PHUSMYNRW;
 				INFOPLIST_FILE = OmniLearning/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.OmniLearning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,15 +324,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OmniLearning/OmniLearning.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 5PHUSMYNRW;
 				INFOPLIST_FILE = OmniLearning/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.OmniLearning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
