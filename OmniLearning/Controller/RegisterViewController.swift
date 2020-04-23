@@ -12,10 +12,10 @@ class RegisterViewController: UIViewController {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var userTypePickerView: UIPickerView!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var registerError: UILabel!
-    @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var userTypePickerView: UIPickerView!
+    
     
     fileprivate var pickerData = ["Student", "Mentor"]
     fileprivate var userType = ""
@@ -39,8 +39,6 @@ class RegisterViewController: UIViewController {
         registerButton.layer.cornerRadius = 30
         registerButton.clipsToBounds = true
         
-        icon.layer.cornerRadius = 30
-        icon.clipsToBounds = true
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
@@ -80,7 +78,7 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             pickerLabel?.font = UIFont(name: "System Thin", size: 30)
             pickerLabel?.font = UIFont.systemFont(ofSize: 30)
             pickerLabel?.textAlignment = NSTextAlignment.center
-            pickerLabel?.textColor = UIColor(named: "DarkPurple")
+            pickerLabel?.textColor = UIColor(named: "Yellow")
         }
 
         pickerLabel?.text = pickerData[row]
