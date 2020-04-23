@@ -18,8 +18,9 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var registerError: UILabel!
     
+    let defaults = UserDefaults.standard //only storing userType and mentorEmail
     
-    fileprivate var pickerData = ["Student", "Mentor"]
+    var pickerData = ["Student", "Mentor"]
     fileprivate var userType = ""
     
     override func viewDidLoad() {
@@ -45,34 +46,30 @@ class RegisterViewController: UIViewController {
         registerButton.clipsToBounds = true
         
     }
+    
+    @IBAction func registerButtonPressed(_ sender: UIButton) {
+        
+        if let mentorEmail = mentorEmail {
+            defaults.set(mentorEmail, forKey: "mentorEmail")
+        }
+        
+        if let email = email.text, let password = password.text {
+            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                if let e = error {
+                    self.registerError.text = e.localizedDescription
+                    print(e.localizedDescription)
+                } else {
+                    if self.userType == "Mentor" {
+                        self.performSegue(withIdentifier: "goToMentor", sender: self)
+                    } else if self.userType == "Student" {
+                        self.performSegue(withIdentifier: "goToStudent", sender: self)
+                    }
+                }
+            }
+        }
+    }
 }
-    
-    //    if let email = emailTextfield.text, let password = passwordTextfield.text {
-    //        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-    //            if let e = error {
-    //                self.registerError.text = e.localizedDescription //error shown in human language
-    //            } else {
-    //                //Navigate to ChatViewController
-    //                self.performSegue(withIdentifier: K.registerSegue, sender: self)
-    //            }
-    //        }
-    //    }
-    //
-    //    @IBAction func registerButtonPressed(_ sender: UIButton) {
-    //        if let email = email.text, let password = password.text {
-    //            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-    //                if let e = error {
-    //                    self.registerError.text = e.localizedDescription
-    //                } else {
-                        //userType needs to be stored in FireBase
-    //                  //Nagivate to MentorViewController or StudentViewController by checking userType
-    //
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    
+
 
 
 //MARK: - Picker View
@@ -93,6 +90,7 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         userType = pickerData[row]
+        defaults.set(userType, forKey: "userType")
         if userType == "Mentor"{
             DispatchQueue.main.async {
                 self.mentorEmail.isHidden = true
