@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
-
+    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var userTypePickerView: UIPickerView!
+    @IBOutlet weak var mentorEmail: UITextField! //mentorEmail.text might not have value --> use optional binding
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var registerError: UILabel!
     
@@ -36,16 +38,42 @@ class RegisterViewController: UIViewController {
         password.layer.cornerRadius = 20
         password.clipsToBounds = true
         
+        mentorEmail.layer.cornerRadius = 20
+        mentorEmail.clipsToBounds = true
+        
         registerButton.layer.cornerRadius = 30
         registerButton.clipsToBounds = true
         
     }
-    
-    @IBAction func registerButtonPressed(_ sender: UIButton) {
-        
-    }
-
 }
+    
+    //    if let email = emailTextfield.text, let password = passwordTextfield.text {
+    //        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+    //            if let e = error {
+    //                self.registerError.text = e.localizedDescription //error shown in human language
+    //            } else {
+    //                //Navigate to ChatViewController
+    //                self.performSegue(withIdentifier: K.registerSegue, sender: self)
+    //            }
+    //        }
+    //    }
+    //
+    //    @IBAction func registerButtonPressed(_ sender: UIButton) {
+    //        if let email = email.text, let password = password.text {
+    //            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+    //                if let e = error {
+    //                    self.registerError.text = e.localizedDescription
+    //                } else {
+                        //userType needs to be stored in FireBase
+    //                  //Nagivate to MentorViewController or StudentViewController by checking userType
+    //
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+    
+
 
 //MARK: - Picker View
 
@@ -65,6 +93,15 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         userType = pickerData[row]
+        if userType == "Mentor"{
+            DispatchQueue.main.async {
+                self.mentorEmail.isHidden = true
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.mentorEmail.isHidden = false
+            }
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -74,15 +111,18 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         if (pickerLabel == nil)
         {
             pickerLabel = UILabel()
-
+            
             pickerLabel?.font = UIFont(name: "System Thin", size: 30)
             pickerLabel?.font = UIFont.systemFont(ofSize: 30)
             pickerLabel?.textAlignment = NSTextAlignment.center
             pickerLabel?.textColor = UIColor(named: "Yellow")
         }
-
+        
         pickerLabel?.text = pickerData[row]
-
+        
+        userType = pickerData[row]
+        
         return pickerLabel!;
     }
 }
+
