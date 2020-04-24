@@ -11,31 +11,21 @@ import Firebase
 
 class RegisterViewController: UIViewController {
     
+    let db = Firestore.firestore()
+    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var userTypePickerView: UIPickerView!
-    @IBOutlet weak var mentorEmail: UITextField! //mentorEmail.text might not have value --> use optional binding
+    @IBOutlet weak var mentorOrStudentEmail: UITextField! 
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var registerError: UILabel!
     
-    let defaults = UserDefaults.standard //only storing userType and mentorEmail
     
     var pickerData = ["Student", "Mentor"]
-    static var userType = ""
-    static var mentorEmailText: String?
+    var userType = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //UserDefaults
-        if let userType = defaults.string(forKey: "userType") {
-            RegisterViewController.self.userType = userType
-        }
-        
-        if let mentorEmail = defaults.string(forKey: "mentorEmail") {
-            RegisterViewController.mentorEmailText = mentorEmail
-        }
-        
         
         //PickerView
         self.userTypePickerView.delegate = self
@@ -52,8 +42,8 @@ class RegisterViewController: UIViewController {
         password.layer.cornerRadius = 20
         password.clipsToBounds = true
         
-        mentorEmail.layer.cornerRadius = 20
-        mentorEmail.clipsToBounds = true
+        mentorOrStudentEmail.layer.cornerRadius = 20
+        mentorOrStudentEmail.clipsToBounds = true
         
         registerButton.layer.cornerRadius = 30
         registerButton.clipsToBounds = true
@@ -62,27 +52,52 @@ class RegisterViewController: UIViewController {
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         
-        if let mentorEmail = mentorEmail {
-            defaults.set(mentorEmail, forKey: "mentorEmail")
-        }
-        
         if let email = email.text, let password = password.text {
+            
             Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                 if let e = error {
                     self.registerError.text = e.localizedDescription
-                    print(e.localizedDescription)
                 } else {
-                    if RegisterViewController.self.userType == "Mentor" {
-                        self.performSegue(withIdentifier: "goToMentor", sender: self)
-                    } else if RegisterViewController.self.userType == "Student" {
-                        self.performSegue(withIdentifier: "goToStudent", sender: self)
+                    if let matchEmail = self.mentorOrStudentEmail.text {
+                        var ref: DocumentReference? = nil
+                        ref = self.db.collection("users").addDocument(data: [
+                            "matchEmail": matchEmail,
+                            "userType": self.userType
+                        ]) { (error) in
+                            if let e = error {
+                                print("There was an issue saving mentor/student email and user type to firestore, \(e.localizedDescription)")
+                            } else {
+                                print("Successfully saved with ID: \(ref!.documentID)")
+                            }
+                        }
+                    }
+                }
+            }
+            
+            db.collection("users").addSnapshotListener { (querrySnapshot, error) in
+                
+                if let e = error {
+                    print("Error getting userType: \(e.localizedDescription)")
+                } else {
+                    if let snapshotDocuments = querrySnapshot?.documents {
+                        for document in snapshotDocuments {
+                            let data = document.data()
+                            if let savedUserType = data["userType"] as? String {
+                                if savedUserType == "Mentor" {
+                                    self.performSegue(withIdentifier: "goToMentor", sender: self)
+                                } else if savedUserType == "Student" {
+                                    self.performSegue(withIdentifier: "goToStudent", sender: self)
+                                } else {
+                                    return
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
 }
-
 
 
 //MARK: - Picker View
@@ -102,15 +117,15 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        RegisterViewController.userType = pickerData[row]
-        defaults.set(RegisterViewController.userType, forKey: "userType")
-        if RegisterViewController.userType == "Mentor"{
+        userType = pickerData[row]
+        //        defaults.set(RegisterViewController.userType, forKey: "userType")
+        if userType == "Mentor"{
             DispatchQueue.main.async {
-                self.mentorEmail.isHidden = true
+                self.mentorOrStudentEmail.placeholder = "Your Student's Email"
             }
         } else {
             DispatchQueue.main.async {
-                self.mentorEmail.isHidden = false
+                self.mentorOrStudentEmail.placeholder = "Your Mentor's Email"
             }
         }
     }
@@ -131,7 +146,7 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         pickerLabel?.text = pickerData[row]
         
-        RegisterViewController.userType = pickerData[row]
+        userType = pickerData[row]
         
         return pickerLabel!;
     }
