@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0F1CD4652451390D007BA59E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CD4642451390D007BA59E /* GoogleService-Info.plist */; };
+		0F1CD46824515D9B007BA59E /* MentorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CD46624515D9B007BA59E /* MentorTableViewController.swift */; };
+		0F1CD46924515D9B007BA59E /* MentorTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CD46724515D9B007BA59E /* MentorTableViewController.xib */; };
+		0F1CD46C24515E03007BA59E /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CD46A24515E03007BA59E /* StudentTableViewController.swift */; };
+		0F1CD46D24515E03007BA59E /* StudentTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CD46B24515E03007BA59E /* StudentTableViewController.xib */; };
 		0FF9C0B2244FC56C00C238E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B1244FC56C00C238E0 /* AppDelegate.swift */; };
 		0FF9C0B4244FC56C00C238E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B3244FC56C00C238E0 /* SceneDelegate.swift */; };
 		0FF9C0B6244FC56C00C238E0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B5244FC56C00C238E0 /* WelcomeViewController.swift */; };
@@ -23,6 +27,10 @@
 
 /* Begin PBXFileReference section */
 		0F1CD4642451390D007BA59E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		0F1CD46624515D9B007BA59E /* MentorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentorTableViewController.swift; sourceTree = "<group>"; };
+		0F1CD46724515D9B007BA59E /* MentorTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MentorTableViewController.xib; sourceTree = "<group>"; };
+		0F1CD46A24515E03007BA59E /* StudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
+		0F1CD46B24515E03007BA59E /* StudentTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudentTableViewController.xib; sourceTree = "<group>"; };
 		0FF9C0AE244FC56C00C238E0 /* OmniLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF9C0B1244FC56C00C238E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF9C0B3244FC56C00C238E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +61,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F1CD47024516587007BA59E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		0FF9C0A5244FC56C00C238E0 = {
 			isa = PBXGroup;
 			children = (
@@ -77,8 +92,9 @@
 				0FF9C0C5244FC79600C238E0 /* OmniLearning.entitlements */,
 				0FF9C0B1244FC56C00C238E0 /* AppDelegate.swift */,
 				0FF9C0B3244FC56C00C238E0 /* SceneDelegate.swift */,
-				0FF9C0C8244FC88300C238E0 /* View */,
-				0FF9C0C6244FC80400C238E0 /* Controller */,
+				0F1CD47024516587007BA59E /* Models */,
+				0FF9C0C8244FC88300C238E0 /* Views */,
+				0FF9C0C6244FC80400C238E0 /* Controllers */,
 				0FF9C0BC244FC56D00C238E0 /* LaunchScreen.storyboard */,
 				0FF9C0BA244FC56D00C238E0 /* Assets.xcassets */,
 				0FF9C0BF244FC56D00C238E0 /* Info.plist */,
@@ -88,22 +104,26 @@
 			path = OmniLearning;
 			sourceTree = "<group>";
 		};
-		0FF9C0C6244FC80400C238E0 /* Controller */ = {
+		0FF9C0C6244FC80400C238E0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				0FF9C0B5244FC56C00C238E0 /* WelcomeViewController.swift */,
 				0FF9C0D2244FF26000C238E0 /* RegisterViewController.swift */,
 				0FF9C0D4244FF39600C238E0 /* LogInViewController.swift */,
+				0F1CD46624515D9B007BA59E /* MentorTableViewController.swift */,
+				0F1CD46A24515E03007BA59E /* StudentTableViewController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		0FF9C0C8244FC88300C238E0 /* View */ = {
+		0FF9C0C8244FC88300C238E0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				0FF9C0B7244FC56C00C238E0 /* Main.storyboard */,
+				0F1CD46724515D9B007BA59E /* MentorTableViewController.xib */,
+				0F1CD46B24515E03007BA59E /* StudentTableViewController.xib */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0FF9C0CD244FDA0600C238E0 /* Fonts */ = {
@@ -197,6 +217,8 @@
 				0FF9C0BB244FC56D00C238E0 /* Assets.xcassets in Resources */,
 				0FF9C0CF244FE85D00C238E0 /* Capriola-Regular.ttf in Resources */,
 				0FF9C0B9244FC56C00C238E0 /* Main.storyboard in Resources */,
+				0F1CD46D24515E03007BA59E /* StudentTableViewController.xib in Resources */,
+				0F1CD46924515D9B007BA59E /* MentorTableViewController.xib in Resources */,
 				0F1CD4652451390D007BA59E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,7 +273,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF9C0B6244FC56C00C238E0 /* WelcomeViewController.swift in Sources */,
+				0F1CD46C24515E03007BA59E /* StudentTableViewController.swift in Sources */,
 				0FF9C0B2244FC56C00C238E0 /* AppDelegate.swift in Sources */,
+				0F1CD46824515D9B007BA59E /* MentorTableViewController.swift in Sources */,
 				0FF9C0B4244FC56C00C238E0 /* SceneDelegate.swift in Sources */,
 				0FF9C0D5244FF39600C238E0 /* LogInViewController.swift in Sources */,
 				0FF9C0D3244FF26000C238E0 /* RegisterViewController.swift in Sources */,

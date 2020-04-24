@@ -31,6 +31,12 @@ class LogInViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
+        if RegisterViewController.userType == "Mentor" {
+            performSegue(withIdentifier: "goToMentor", sender: self)
+        } else if
+            RegisterViewController.self.userType == "Student" {
+                self.performSegue(withIdentifier: "goToStudent", sender: self)
+            }
     }
     
     

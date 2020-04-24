@@ -132,6 +132,8 @@
                         <outlet property="loginButton" destination="VHj-qx-2m5" id="Euc-9I-ZuO"/>
                         <outlet property="loginError" destination="YXl-v9-2F2" id="dQ3-XE-1Tf"/>
                         <outlet property="password" destination="z5L-or-0W3" id="Ohw-Mu-oRJ"/>
+                        <segue destination="400-Yv-kNe" kind="show" identifier="goToMentor" id="U3v-i8-YL4"/>
+                        <segue destination="ad3-2b-5ns" kind="show" identifier="goToStudent" id="a8S-M1-i5P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yr0-GN-pCE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -324,4 +326,8 @@
             <color red="1" green="0.81599998474121094" blue="0.54100000858306885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="U3v-i8-YL4"/>
+        <segue reference="a8S-M1-i5P"/>
+    </inferredMetricsTieBreakers>
 </document>

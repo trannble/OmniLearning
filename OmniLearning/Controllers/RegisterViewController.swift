@@ -21,15 +21,28 @@ class RegisterViewController: UIViewController {
     let defaults = UserDefaults.standard //only storing userType and mentorEmail
     
     var pickerData = ["Student", "Mentor"]
-    fileprivate var userType = ""
+    static var userType = ""
+    static var mentorEmailText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //UserDefaults
+        if let userType = defaults.string(forKey: "userType") {
+            RegisterViewController.self.userType = userType
+        }
+        
+        if let mentorEmail = defaults.string(forKey: "mentorEmail") {
+            RegisterViewController.mentorEmailText = mentorEmail
+        }
+        
+        
+        //PickerView
         self.userTypePickerView.delegate = self
         self.userTypePickerView.dataSource = self
         
-        //styling
+        
+        //Styling
         email.layer.cornerRadius = 20
         email.clipsToBounds = true
         
@@ -59,9 +72,9 @@ class RegisterViewController: UIViewController {
                     self.registerError.text = e.localizedDescription
                     print(e.localizedDescription)
                 } else {
-                    if self.userType == "Mentor" {
+                    if RegisterViewController.self.userType == "Mentor" {
                         self.performSegue(withIdentifier: "goToMentor", sender: self)
-                    } else if self.userType == "Student" {
+                    } else if RegisterViewController.self.userType == "Student" {
                         self.performSegue(withIdentifier: "goToStudent", sender: self)
                     }
                 }
@@ -89,9 +102,9 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        userType = pickerData[row]
-        defaults.set(userType, forKey: "userType")
-        if userType == "Mentor"{
+        RegisterViewController.userType = pickerData[row]
+        defaults.set(RegisterViewController.userType, forKey: "userType")
+        if RegisterViewController.userType == "Mentor"{
             DispatchQueue.main.async {
                 self.mentorEmail.isHidden = true
             }
@@ -118,7 +131,7 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         pickerLabel?.text = pickerData[row]
         
-        userType = pickerData[row]
+        RegisterViewController.userType = pickerData[row]
         
         return pickerLabel!;
     }
