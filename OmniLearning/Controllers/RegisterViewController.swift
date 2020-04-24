@@ -74,6 +74,8 @@ class RegisterViewController: UIViewController {
                 }
             }
             
+            //FIX: can replace duplicate code block (here and LogInViewController with ScreenPicker)
+            
             db.collection("users").addSnapshotListener { (querrySnapshot, error) in
                 
                 if let e = error {

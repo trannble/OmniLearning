@@ -12,6 +12,7 @@
 		0F1CD46924515D9B007BA59E /* MentorTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CD46724515D9B007BA59E /* MentorTableViewController.xib */; };
 		0F1CD46C24515E03007BA59E /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1CD46A24515E03007BA59E /* StudentTableViewController.swift */; };
 		0F1CD46D24515E03007BA59E /* StudentTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F1CD46B24515E03007BA59E /* StudentTableViewController.xib */; };
+		0F625B822452B89E009F6942 /* ScreenPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F625B812452B89E009F6942 /* ScreenPicker.swift */; };
 		0FF9C0B2244FC56C00C238E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B1244FC56C00C238E0 /* AppDelegate.swift */; };
 		0FF9C0B4244FC56C00C238E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B3244FC56C00C238E0 /* SceneDelegate.swift */; };
 		0FF9C0B6244FC56C00C238E0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B5244FC56C00C238E0 /* WelcomeViewController.swift */; };
@@ -31,6 +32,7 @@
 		0F1CD46724515D9B007BA59E /* MentorTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MentorTableViewController.xib; sourceTree = "<group>"; };
 		0F1CD46A24515E03007BA59E /* StudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
 		0F1CD46B24515E03007BA59E /* StudentTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudentTableViewController.xib; sourceTree = "<group>"; };
+		0F625B812452B89E009F6942 /* ScreenPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenPicker.swift; sourceTree = "<group>"; };
 		0FF9C0AE244FC56C00C238E0 /* OmniLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF9C0B1244FC56C00C238E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF9C0B3244FC56C00C238E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		0F1CD47024516587007BA59E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0F625B812452B89E009F6942 /* ScreenPicker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				0FF9C0B6244FC56C00C238E0 /* WelcomeViewController.swift in Sources */,
 				0F1CD46C24515E03007BA59E /* StudentTableViewController.swift in Sources */,
 				0FF9C0B2244FC56C00C238E0 /* AppDelegate.swift in Sources */,
+				0F625B822452B89E009F6942 /* ScreenPicker.swift in Sources */,
 				0F1CD46824515D9B007BA59E /* MentorTableViewController.swift in Sources */,
 				0FF9C0B4244FC56C00C238E0 /* SceneDelegate.swift in Sources */,
 				0FF9C0D5244FF39600C238E0 /* LogInViewController.swift in Sources */,
