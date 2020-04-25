@@ -18,54 +18,51 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ho7-jS-Nz6">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ho7-jS-Nz6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Ezk-ca-3zc">
+                        <rect key="frame" x="20" y="20" width="280" height="11"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9:00AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNr-7E-tIi">
-                                <rect key="frame" x="8" y="13" width="43" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjb-xF-3oX">
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="11"/>
+                                <color key="backgroundColor" name="LightPurple"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HC6-dt-Sfu">
-                                <rect key="frame" x="286" y="14" width="27" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" name="Yellow"/>
-                                <state key="normal" title="Button" image="message.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="chatButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hl7-8q-XYU"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Complete 9.1 in textbook" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLR-bW-bQR">
-                                <rect key="frame" x="59" y="10" width="219" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="LightPurple"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish 9.1 worksheet " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMV-1J-Ir0">
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    </view>
+                    </stackView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Ezk-ca-3zc" secondAttribute="trailing" constant="20" symbolic="YES" id="7O6-Ya-f5C"/>
+                    <constraint firstAttribute="bottom" secondItem="ho7-jS-Nz6" secondAttribute="bottom" id="90v-Ls-Hpd"/>
+                    <constraint firstAttribute="trailing" secondItem="ho7-jS-Nz6" secondAttribute="trailing" id="EMI-7W-1dN"/>
+                    <constraint firstItem="ho7-jS-Nz6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JOQ-cU-bEM"/>
+                    <constraint firstItem="Ezk-ca-3zc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="MN4-D5-BGo"/>
+                    <constraint firstItem="ho7-jS-Nz6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NRS-o9-nh4"/>
+                    <constraint firstAttribute="bottom" secondItem="Ezk-ca-3zc" secondAttribute="bottom" constant="20" symbolic="YES" id="hje-e3-9o4"/>
+                    <constraint firstItem="Ezk-ca-3zc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="vo8-uI-vXF"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="taskLabel" destination="yLR-bW-bQR" id="WTG-N3-U4M"/>
-                <outlet property="timeLabel" destination="NNr-7E-tIi" id="Xkt-HW-lGR"/>
+                <outlet property="messageLabel" destination="kMV-1J-Ir0" id="FbL-UM-0HV"/>
+                <outlet property="timeLabel" destination="Cjb-xF-3oX" id="mBv-Kx-fVq"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="126.22767857142857"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="message.fill" catalog="system" width="64" height="56"/>
         <namedColor name="LightPurple">
             <color red="0.84299999475479126" green="0.76099997758865356" blue="0.89800000190734863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Yellow">
-            <color red="1" green="0.81599998474121094" blue="0.54100000858306885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

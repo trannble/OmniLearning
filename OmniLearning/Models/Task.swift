@@ -10,6 +10,6 @@ import Foundation
 
 struct Task {
     let sender: String
-    let message: String
+    let description: String
     let time: String
 }

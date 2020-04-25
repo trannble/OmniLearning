@@ -52,9 +52,9 @@ class LogInViewController: UIViewController {
                                         if savedUserType == "Mentor" {
                                             //print("Mentor was matched successfully")
                                             //print(savedUserType)
-                                            self.performSegue(withIdentifier: "goToMentor", sender: self)
+                                            self.performSegue(withIdentifier: "goToMentorFromLogIn", sender: self)
                                         } else if savedUserType == "Student" {
-                                            self.performSegue(withIdentifier: "goToStudent", sender: self)
+                                            self.performSegue(withIdentifier: "goToStudentFromLogIn", sender: self)
                                         } else {
                                             print("Error matching userType during login")
                                             return

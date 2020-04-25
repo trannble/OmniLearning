@@ -10,6 +10,8 @@ import UIKit
 
 class StudentTableViewController: UIViewController {
         
+    var email = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

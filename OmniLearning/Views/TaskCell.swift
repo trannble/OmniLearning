@@ -11,11 +11,7 @@ import UIKit
 class TaskCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var taskLabel: UILabel!
-    
-    @IBAction func chatButtonPressed(_ sender: UIButton) {
-        
-    }
+    @IBOutlet weak var messageLabel: UILabel!
     
 
     override func awakeFromNib() {
