@@ -29,18 +29,9 @@ class MentorTableViewController: UIViewController {
         taskTableView.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "prototypeCell")
         
         //loadTasks()
-        
-//        print(userType)
-//        if userType == "Student" {
-//            performSegue(withIdentifier: "goFromMentorToStudent", sender: self)
-//        }
+
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        if userType == "Student" {
-//            performSegue(withIdentifier: "goToStudent", sender: nil)
-//        }
-//    }
+
     
     func getCurrentDate() -> String {
         let currentDate = Date()

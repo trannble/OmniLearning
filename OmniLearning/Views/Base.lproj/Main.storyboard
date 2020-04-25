@@ -82,6 +82,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9n-av-4X3" userLabel="registerStudentButton">
+                                <rect key="frame" x="12" y="277" width="189" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="LightPurple"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
+                                <color key="tintColor" name="DarkPurple"/>
+                                <state key="normal" title="Student Log In"/>
+                                <connections>
+                                    <action selector="studentLogInButtonPressed:" destination="w8R-Po-VUL" eventType="touchUpInside" id="Gnb-gq-kdt"/>
+                                    <segue destination="C1a-8R-KQy" kind="presentation" identifier="goToStudentFromLogIn" animates="NO" modalPresentationStyle="fullScreen" id="mWA-V6-adm"/>
+                                </connections>
+                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OLIconRound" translatesAutoresizingMaskIntoConstraints="NO" id="Mz1-Hb-vOP">
                                 <rect key="frame" x="107" y="599" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -93,7 +105,7 @@
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mentor@test.com" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vb5-aI-2aa">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="m@m.com" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vb5-aI-2aa">
                                 <rect key="frame" x="20" y="95" width="374" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="Yellow"/>
@@ -107,15 +119,16 @@
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHj-qx-2m5">
-                                <rect key="frame" x="20" y="272" width="214" height="72"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdb-Lj-elA" userLabel="registerStudentButton">
+                                <rect key="frame" x="217" y="277" width="189" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="LightPurple"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="50"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
                                 <color key="tintColor" name="DarkPurple"/>
+                                <state key="normal" title="Mentor Log In"/>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="w8R-Po-VUL" eventType="touchUpInside" id="Nha-7D-uo9"/>
-                                    <action selector="registerButtonPressed:" destination="kkc-AO-nTX" eventType="touchUpInside" id="fv6-jI-N2V"/>
+                                    <action selector="mentorLogInButtonPressed:" destination="w8R-Po-VUL" eventType="touchUpInside" id="uCD-No-5LL"/>
+                                    <segue destination="K7v-Hg-wGI" kind="presentation" identifier="goToMentorFromLogIn" animates="NO" modalPresentationStyle="fullScreen" id="AqH-Bq-oMv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -125,11 +138,10 @@
                     <navigationItem key="navigationItem" id="M4F-oc-lK6"/>
                     <connections>
                         <outlet property="email" destination="Vb5-aI-2aa" id="1KC-ml-E4D"/>
-                        <outlet property="loginButton" destination="VHj-qx-2m5" id="Euc-9I-ZuO"/>
                         <outlet property="loginError" destination="YXl-v9-2F2" id="dQ3-XE-1Tf"/>
+                        <outlet property="mentorLogIn" destination="cdb-Lj-elA" id="j5Y-lP-2CL"/>
                         <outlet property="password" destination="z5L-or-0W3" id="Ohw-Mu-oRJ"/>
-                        <segue destination="K7v-Hg-wGI" kind="show" identifier="goToMentorFromLogIn" id="q7L-XH-UTO"/>
-                        <segue destination="C1a-8R-KQy" kind="show" identifier="goToStudentFromLogIn" id="tP0-Pd-9DA"/>
+                        <outlet property="studentLogIn" destination="q9n-av-4X3" id="Co9-mq-1Gn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yr0-GN-pCE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -141,7 +153,7 @@
             <objects>
                 <viewController id="C1a-8R-KQy" customClass="StudentTableViewController" customModule="OmniLearning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x61-Li-iou">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Sxz-ln-zKt"/>
@@ -191,8 +203,8 @@
                                 <color key="tintColor" name="DarkPurple"/>
                                 <state key="normal" title="Register Student"/>
                                 <connections>
-                                    <action selector="registerButtonPressed:" destination="kkc-AO-nTX" eventType="touchUpInside" id="SD8-xQ-vDg"/>
-                                    <segue destination="C1a-8R-KQy" kind="show" identifier="goToStudentFromRegister" id="M5b-54-c9e"/>
+                                    <action selector="registerStudentButtonPressed:" destination="kkc-AO-nTX" eventType="touchUpInside" id="8fG-T7-ymp"/>
+                                    <segue destination="C1a-8R-KQy" kind="presentation" identifier="goToStudentFromRegister" animates="NO" modalPresentationStyle="fullScreen" id="k9o-ng-FHb"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OLIconRound" translatesAutoresizingMaskIntoConstraints="NO" id="ktx-Av-eEt">
@@ -227,8 +239,8 @@
                                 <color key="tintColor" name="DarkPurple"/>
                                 <state key="normal" title="Register Mentor"/>
                                 <connections>
-                                    <action selector="registerButtonPressed:" destination="kkc-AO-nTX" eventType="touchUpInside" id="3zu-ZG-Ucu"/>
-                                    <segue destination="K7v-Hg-wGI" kind="show" identifier="goToMentorFromRegister" id="jV6-sT-Hgq"/>
+                                    <action selector="registerMentorButtonPressed:" destination="kkc-AO-nTX" eventType="touchUpInside" id="d0A-Yj-ywS"/>
+                                    <segue destination="K7v-Hg-wGI" kind="presentation" identifier="goToMentorFromRegister" animates="NO" modalPresentationStyle="fullScreen" id="jV6-sT-Hgq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -255,30 +267,30 @@
             <objects>
                 <viewController id="K7v-Hg-wGI" customClass="MentorTableViewController" customModule="OmniLearning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jpr-Qu-bUo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Personalize your student's day:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75h-wF-cOx">
-                                <rect key="frame" x="6" y="60" width="399" height="30"/>
+                                <rect key="frame" x="6" y="73" width="399" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="niq-IA-9iB">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="LightPurple"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mentor Dashboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsg-c0-aSw">
-                                <rect key="frame" x="0.0" y="3" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="25" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <color key="textColor" name="DarkPurple"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZB-ck-h7u">
-                                <rect key="frame" x="369" y="14" width="25" height="26"/>
+                                <rect key="frame" x="369" y="39" width="25" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -288,14 +300,14 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Add an incentive" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fXm-AB-YIW">
-                                <rect key="frame" x="22" y="98" width="367" height="45"/>
+                                <rect key="frame" x="22" y="130" width="367" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="Yellow"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="uTQ-o7-vfW">
-                                <rect key="frame" x="2" y="159" width="411" height="561"/>
+                                <rect key="frame" x="3" y="194" width="411" height="561"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nnA-L8-35v">
@@ -307,26 +319,8 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="4XM-hN-cNa"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="NIU-KZ-fhy"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8u-hq-wk8">
-                                <rect key="frame" x="8" y="10" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Log Out">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="logOutButtonPressed:" destination="K7v-Hg-wGI" eventType="touchUpInside" id="7B6-HP-H0R"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swK-Ue-dBl" userLabel="errorMessage">
-                                <rect key="frame" x="6" y="728" width="399" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.60627448559999997" green="0.1105902269" blue="0.12154255059999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BH7-vx-UPD">
-                                <rect key="frame" x="8" y="751" width="125" height="57"/>
+                                <rect key="frame" x="8" y="803" width="125" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="LightPurple"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -338,7 +332,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGa-VD-ZDJ">
-                                <rect key="frame" x="282" y="751" width="125" height="57"/>
+                                <rect key="frame" x="282" y="803" width="125" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="DarkPurple"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -350,7 +344,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63d-kl-epe">
-                                <rect key="frame" x="145" y="751" width="125" height="57"/>
+                                <rect key="frame" x="145" y="803" width="125" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="MediumPurple"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -359,6 +353,24 @@
                                 </state>
                                 <connections>
                                     <action selector="checkInButtonPressed:" destination="K7v-Hg-wGI" eventType="touchUpInside" id="pg7-bu-DSd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swK-Ue-dBl" userLabel="errorMessage">
+                                <rect key="frame" x="6" y="763" width="399" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.60627448559999997" green="0.1105902269" blue="0.12154255059999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8u-hq-wk8">
+                                <rect key="frame" x="8" y="37" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutButtonPressed:" destination="K7v-Hg-wGI" eventType="touchUpInside" id="7B6-HP-H0R"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -397,7 +409,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jV6-sT-Hgq"/>
-        <segue reference="M5b-54-c9e"/>
+        <segue reference="AqH-Bq-oMv"/>
+        <segue reference="mWA-V6-adm"/>
     </inferredMetricsTieBreakers>
 </document>

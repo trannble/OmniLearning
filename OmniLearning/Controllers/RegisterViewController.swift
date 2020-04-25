@@ -48,14 +48,15 @@ class RegisterViewController: UIViewController {
         registerStudentButton.layer.cornerRadius = 20
         registerStudentButton.clipsToBounds = true
         
-        registerStudentButton.layer.cornerRadius = 20
-        registerStudentButton.clipsToBounds = true
+        registerMentorButton.layer.cornerRadius = 20
+        registerMentorButton.clipsToBounds = true
         
     }
     
     
+//MARK: - Register New Student
     @IBAction func registerStudentButtonPressed(_ sender: UIButton) {
-        
+    
         if let email = email.text, let password = password.text {
             
             Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
@@ -90,25 +91,11 @@ class RegisterViewController: UIViewController {
                             if let savedUserType = data["userType"] as? String {
                                 
                                 func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-                                    if segue.identifier == "goToMentorFromRegister" {
-                                        let destinationVC = segue.destination as! MentorTableViewController
-                                        destinationVC.email = self.email.text!
-                                    } else if segue.identifier == "goToStudentFromRegister" {
-                                        let destinationVC = segue.destination as! StudentTableViewController
-                                        destinationVC.email = self.email.text!
-                                    }
+                                    let destinationVC = segue.destination as! StudentTableViewController
+                                    destinationVC.email = self.email.text!
                                 }
                                 
-                                if savedUserType == "Mentor" {
-                                    print(savedUserType)
-                                    self.performSegue(withIdentifier: "goToMentorFromRegister", sender: self)
-                                } else if savedUserType == "Student" {
-                                    print(savedUserType)
-                                    self.performSegue(withIdentifier: "goToStudentFromRegister", sender: self)
-                                } else {
-                                    print("Could not match database userType")
-                                    return
-                                }
+                                self.performSegue(withIdentifier: "goToStudentFromRegister", sender: self)
                             }
                         }
                     }
@@ -116,8 +103,60 @@ class RegisterViewController: UIViewController {
             }
         }
     }
+    
+//MARK: - Register New Mentor
+    
+    @IBAction func registerMentorButtonPressed(_ sender: UIButton) {
+        
+        if let email = email.text, let password = password.text {
+            
+            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                if let e = error {
+                    self.registerError.text = e.localizedDescription
+                } else {
+                    if let matchEmail = self.mentorOrStudentEmail.text {
+                        self.db.collection("users").document(email).setData ([
+                            "matchEmail": matchEmail,
+                            "userType": self.userType
+                        ]) { (error) in
+                            if let e = error {
+                                print("There was an issue saving mentor email and user type to firestore, \(e.localizedDescription)")
+                            } else {
+                                print("Successfully saved with ID")
+                            }
+                        }
+                    }
+                }
+            }
+            
+            
+            db.collection("users").addSnapshotListener { (querrySnapshot, error) in
+                
+                if let e = error {
+                    print("Error getting userType: \(e.localizedDescription)")
+                } else {
+                    if let snapshotDocuments = querrySnapshot?.documents {
+                        for document in snapshotDocuments {
+                            let data = document.data()
+                            
+                            if let savedUserType = data["userType"] as? String {
+                                
+                                func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+                                    let destinationVC = segue.destination as! MentorTableViewController
+                                    destinationVC.email = self.email.text!
+                                }
+                                
+                                self.performSegue(withIdentifier: "goToMentorFromRegister", sender: self)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    
 }
-
 
 //MARK: - Picker View
 
