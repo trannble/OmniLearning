@@ -29,30 +29,34 @@ class LogInViewController: UIViewController {
         
         loginButton.layer.cornerRadius = 30
         loginButton.clipsToBounds = true
+    
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
         if let email = email.text, let password = password.text {
             
-            Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                guard let self = self else {return}
                 if let e = error {
                     print("Error authenticating \(e)")
                     self.loginError.text = e.localizedDescription
                 } else {
-                    self.db.collection("users").addSnapshotListener { (querrySnapshot, error) in
+                    self.db.collection("users").getDocuments() { (querrySnapshot, error) in
                         if let e = error {
                             print("Error getting userType: \(e.localizedDescription)")
                         } else {
-                            if let snapshotDocuments = querrySnapshot?.documents {
-                                for document in snapshotDocuments {
+                                for document in querrySnapshot!.documents {
                                     let data = document.data()
                                     if let savedUserType = data["userType"] as? String {
                                         if savedUserType == "Mentor" {
+                                            //print("Mentor was matched successfully")
+                                            //print(savedUserType)
                                             self.performSegue(withIdentifier: "goToMentor", sender: self)
                                         } else if savedUserType == "Student" {
                                             self.performSegue(withIdentifier: "goToStudent", sender: self)
                                         } else {
+                                            print("Error matching userType during login")
                                             return
                                         }
                                     }
@@ -64,4 +68,4 @@ class LogInViewController: UIViewController {
             }
         }
     }
-}
+

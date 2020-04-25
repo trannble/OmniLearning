@@ -74,7 +74,6 @@ class RegisterViewController: UIViewController {
                 }
             }
             
-            //FIX: can replace duplicate code block (here and LogInViewController with ScreenPicker)
             
             db.collection("users").addSnapshotListener { (querrySnapshot, error) in
                 
@@ -90,6 +89,7 @@ class RegisterViewController: UIViewController {
                                 } else if savedUserType == "Student" {
                                     self.performSegue(withIdentifier: "goToStudent", sender: self)
                                 } else {
+                                    print("Could not match database userType")
                                     return
                                 }
                             }

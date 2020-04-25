@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zDK-RQ-29s">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Welcome View Controller-->
+        <!--WelcomeViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="OmniLearning" sceneMemberID="viewController">
+                <viewController title="WelcomeViewController" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="OmniLearning" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N2B-xD-F5f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -38,7 +38,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PcG-8B-tPp"/>
-                                    <segue destination="w8R-Po-VUL" kind="show" identifier="goToLogin" id="J2G-7I-dOO"/>
+                                    <segue destination="w8R-Po-VUL" kind="presentation" identifier="goToLogin" modalPresentationStyle="fullScreen" id="J2G-7I-dOO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aae-m0-agi">
@@ -51,13 +51,14 @@
                                 </state>
                                 <connections>
                                     <action selector="registerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FzM-aw-VLY"/>
-                                    <segue destination="kkc-AO-nTX" kind="show" identifier="goToRegister" id="Hqc-1y-hXR"/>
+                                    <segue destination="kkc-AO-nTX" kind="presentation" identifier="goToRegister" modalPresentationStyle="fullScreen" id="Hqc-1y-hXR"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="RkU-cG-0UL"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="hU7-Qi-487"/>
                     <navigationItem key="navigationItem" id="8AA-Qi-C2C"/>
                     <connections>
                         <outlet property="LogIn" destination="e34-bP-zQc" id="bQb-xy-Gm9"/>
@@ -67,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="88.392857142857139"/>
+            <point key="canvasLocation" x="1957.9710144927537" y="88.392857142857139"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="YJ6-sO-LcB">
@@ -78,7 +79,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="QGV-NF-xcD">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHj-qx-2m5">
@@ -128,42 +129,28 @@
                         <outlet property="loginButton" destination="VHj-qx-2m5" id="Euc-9I-ZuO"/>
                         <outlet property="loginError" destination="YXl-v9-2F2" id="dQ3-XE-1Tf"/>
                         <outlet property="password" destination="z5L-or-0W3" id="Ohw-Mu-oRJ"/>
-                        <segue destination="400-Yv-kNe" kind="show" identifier="goToMentor" animates="NO" id="U3v-i8-YL4"/>
-                        <segue destination="ad3-2b-5ns" kind="show" identifier="goToStudent" animates="NO" id="a8S-M1-i5P"/>
+                        <segue destination="K7v-Hg-wGI" kind="presentation" identifier="goToMentor" modalPresentationStyle="fullScreen" id="q7L-XH-UTO"/>
+                        <segue destination="C1a-8R-KQy" kind="presentation" identifier="goToStudent" modalPresentationStyle="fullScreen" id="tP0-Pd-9DA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yr0-GN-pCE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2173.913043478261" y="624.77678571428567"/>
+            <point key="canvasLocation" x="3084.057971014493" y="624.77678571428567"/>
         </scene>
-        <!--Student Dashboard-->
-        <scene sceneID="O6c-8v-Yab">
+        <!--Student Table View Controller-->
+        <scene sceneID="1y7-se-V8p">
             <objects>
-                <tableViewController id="ad3-2b-5ns" customClass="StudentTableViewController" customModule="OmniLearning" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CAD-Xh-2gQ">
+                <viewController id="C1a-8R-KQy" customClass="StudentTableViewController" customModule="OmniLearning" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x61-Li-iou">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Krm-Fn-fA8">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Krm-Fn-fA8" id="ZGl-pC-1dV">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="ad3-2b-5ns" id="dwh-UU-Nv2"/>
-                            <outlet property="delegate" destination="ad3-2b-5ns" id="MKM-GO-rHw"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Student Dashboard" id="Jlg-mH-WTA"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kOw-sY-OFo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <viewLayoutGuide key="safeArea" id="Sxz-ln-zKt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eMC-fT-abM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3451" y="596"/>
+            <point key="canvasLocation" x="4174" y="625"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="y9n-uG-dNR">
@@ -174,7 +161,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="kmj-fV-bfM">
-                                <rect key="frame" x="0.0" y="88" width="653" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zKA-5d-TbQ">
@@ -243,66 +230,28 @@
                         <outlet property="registerButton" destination="Vke-jG-kCx" id="Brd-JM-oTM"/>
                         <outlet property="registerError" destination="zNv-eY-PBI" id="nBx-zx-XYd"/>
                         <outlet property="userTypePickerView" destination="zF0-ZH-9BE" id="qH1-lr-yIi"/>
-                        <segue destination="400-Yv-kNe" kind="show" identifier="goToMentor" animates="NO" id="Ydw-hH-PjI"/>
-                        <segue destination="ad3-2b-5ns" kind="show" identifier="goToStudent" animates="NO" id="AOM-CD-LlU"/>
+                        <segue destination="K7v-Hg-wGI" kind="presentation" identifier="goToMentor" modalPresentationStyle="fullScreen" id="CM8-73-1Tc"/>
+                        <segue destination="C1a-8R-KQy" kind="presentation" identifier="goToStudent" modalPresentationStyle="fullScreen" id="ySU-rf-5tR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6f-jP-Tea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2173.913043478261" y="-167.41071428571428"/>
+            <point key="canvasLocation" x="3084.057971014493" y="-167.41071428571428"/>
         </scene>
-        <!--Mentor Dashboard-->
-        <scene sceneID="wiQ-Pd-gaB">
+        <!--Mentor Table View Controller-->
+        <scene sceneID="gSJ-bh-E3b">
             <objects>
-                <tableViewController id="400-Yv-kNe" customClass="MentorTableViewController" customModule="OmniLearning" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OMH-pQ-U0x">
+                <viewController id="K7v-Hg-wGI" customClass="MentorTableViewController" customModule="OmniLearning" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jpr-Qu-bUo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6Le-jf-BuB">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Le-jf-BuB" id="FCv-KY-HeT">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="400-Yv-kNe" id="0O3-Fn-yQt"/>
-                            <outlet property="delegate" destination="400-Yv-kNe" id="EiI-r9-4KG"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Mentor Dashboard" id="XvB-DZ-TQK"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rv7-ic-OcX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <viewLayoutGuide key="safeArea" id="jVA-yG-8Ik"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WuB-M3-70y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3452" y="-167"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="NEX-2Q-QMo">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zDK-RQ-29s" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vH0-wS-RZF">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="Yellow"/>
-                        <color key="barTintColor" name="DarkPurple"/>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" name="Yellow"/>
-                            <color key="textShadowColor" name="Yellow"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Xrk-yk-nvW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wyn-et-q6u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="88.392857142857139"/>
+            <point key="canvasLocation" x="4174" y="-167"/>
         </scene>
     </scenes>
     <resources>
@@ -318,12 +267,9 @@
         <namedColor name="Yellow">
             <color red="1" green="0.81599998474121094" blue="0.54100000858306885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Yellow">
-            <color red="1" green="0.81599998474121094" blue="0.54100000858306885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="U3v-i8-YL4"/>
-        <segue reference="a8S-M1-i5P"/>
+        <segue reference="CM8-73-1Tc"/>
+        <segue reference="ySU-rf-5tR"/>
     </inferredMetricsTieBreakers>
 </document>
