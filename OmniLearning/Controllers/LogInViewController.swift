@@ -19,6 +19,8 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var mentorLogIn: UIButton!
     @IBOutlet weak var loginError: UILabel!
     
+    var savedEmail = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,46 +37,25 @@ class LogInViewController: UIViewController {
         mentorLogIn.clipsToBounds = true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToStudentFromLogIn" {
+            let destinationVC = segue.destination as! StudentTableViewController
+            destinationVC.email = savedEmail
+        } else if segue.identifier == "goToMentorFromLogIn" {
+            let destinationVC = segue.destination as! MentorTableViewController
+            destinationVC.email = savedEmail
+        }
+        
+    }
+    
 //MARK: - Student Log In Button
     
     @IBAction func studentLogInButtonPressed(_ sender: UIButton) {
         
         if let email = email.text, let password = password.text {
             
-            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-                guard let self = self else {return}
-                if let e = error {
-                    print("Error authenticating \(e)")
-                    self.loginError.text = e.localizedDescription
-                } else {
-                    self.db.collection("users").getDocuments() { (querrySnapshot, error) in
-                        if let e = error {
-                            print("Error getting userType: \(e.localizedDescription)")
-                        } else {
-                            for document in querrySnapshot!.documents {
-                                let data = document.data()
-                                if let savedUserType = data["userType"] as? String {
-                                    
-                                    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-                                        let destinationVC = segue.destination as! StudentTableViewController
-                                        destinationVC.email = self.email.text!
-                                    }
-                                    
-                                    self.performSegue(withIdentifier: "goToStudentFromLogIn", sender: self)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-//MARK: - Mentor Log In Button
-    
-    @IBAction func mentorLogInButtonPressed(_ sender: UIButton) {
-        
-        if let email = email.text, let password = password.text {
+            savedEmail = email
             
             Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
                 guard let self = self else {return}
@@ -82,24 +63,67 @@ class LogInViewController: UIViewController {
                     print("Error authenticating \(e)")
                     self.loginError.text = e.localizedDescription
                 } else {
-                    self.db.collection("users").getDocuments() { (querrySnapshot, error) in
-                        if let e = error {
-                            print("Error getting userType: \(e.localizedDescription)")
-                        } else {
-                            for document in querrySnapshot!.documents {
-                                let data = document.data()
-                                if let savedUserType = data["userType"] as? String {
-                                    
-                                    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-                                        let destinationVC = segue.destination as! MentorTableViewController
-                                        destinationVC.email = self.email.text!
-                                    }
-                                    
-                                    self.performSegue(withIdentifier: "goToMentorFromLogIn", sender: self)
-                                }
-                            }
-                        }
-                    }
+                    
+                    self.performSegue(withIdentifier: "goToStudentFromLogIn", sender: self)
+
+                    
+//                    self.db.collection("users").getDocuments() { (querrySnapshot, error) in
+//                        if let e = error {
+//                            print("Error getting userType: \(e.localizedDescription)")
+//                        } else {
+//                            for document in querrySnapshot!.documents {
+//                                let data = document.data()
+//                                if let savedUserType = data["userType"] as? String {
+//
+//                                    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+//                                        let destinationVC = segue.destination as! StudentTableViewController
+//                                        destinationVC.email = email
+//                                    }
+//
+//                                    self.performSegue(withIdentifier: "goToStudentFromLogIn", sender: self)
+//                                }
+//                            }
+//                        }
+//                    }
+                }
+            }
+        }
+    }
+        
+//MARK: - Mentor Button Pressed
+        
+    @IBAction func mentorLogInButtonPressed(_ sender: UIButton) {
+        
+        if let email = email.text, let password = password.text {
+            
+            savedEmail = email
+            
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                guard let self = self else {return}
+                if let e = error {
+                    print("Error authenticating \(e)")
+                    self.loginError.text = e.localizedDescription
+                } else {
+                    self.performSegue(withIdentifier: "goToMentorFromLogIn", sender: self)
+
+//                    self.db.collection("users").getDocuments() { (querrySnapshot, error) in
+//                        if let e = error {
+//                            print("Error getting userType: \(e.localizedDescription)")
+//                        } else {
+//                            for document in querrySnapshot!.documents {
+//                                let data = document.data()
+//                                if let savedUserType = data["userType"] as? String {
+//
+//                                    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+//                                        let destinationVC = segue.destination as! MentorTableViewController
+//                                        destinationVC.email = email
+//                                    }
+//
+//                                    self.performSegue(withIdentifier: "goToMentorFromLogIn", sender: self)
+//                                }
+//                            }
+//                        }
+//                    }
                 }
             }
         }

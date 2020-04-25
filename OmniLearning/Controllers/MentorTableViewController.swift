@@ -29,9 +29,9 @@ class MentorTableViewController: UIViewController {
         taskTableView.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "prototypeCell")
         
         //loadTasks()
-
+        
     }
-
+    
     
     func getCurrentDate() -> String {
         let currentDate = Date()
@@ -56,20 +56,20 @@ class MentorTableViewController: UIViewController {
             if let description = descriptionTextField.text, let time = timeTextField.text, let sender = Auth.auth().currentUser?.email {
                 let newTask = Task(sender: sender, description: description, time: time)
                 self.task.append(newTask)
-                            
-//                self.db.collection("users").document(email).setData([
-//                    "sender": sender,
-//                    "time": time,
-//                    "description": description,
-//                    ], merge: true)
-//                { (error) in
-//                    if let e = error {
-//                        print("There was an issue saving data to firestore, \(e) ")
-//                        self.errorMessage.text = "Your data was not saved and sent, \(e.localizedDescription)"
-//                    } else {
-//                        print("Successfully saved data.")
-//                    }
-//                }
+                
+                //                self.db.collection("users").document(email).setData([
+                //                    "sender": sender,
+                //                    "time": time,
+                //                    "description": description,
+                //                    ], merge: true)
+                //                { (error) in
+                //                    if let e = error {
+                //                        print("There was an issue saving data to firestore, \(e) ")
+                //                        self.errorMessage.text = "Your data was not saved and sent, \(e.localizedDescription)"
+                //                    } else {
+                //                        print("Successfully saved data.")
+                //                    }
+                //                }
                 
             }
         }
@@ -94,6 +94,18 @@ class MentorTableViewController: UIViewController {
     }
     
     @IBAction func assignButtonPressed(_ sender: UIButton) {
+        
+        if let incentive = incentive.text {
+            print(email)
+            db.collection("users").document(email).setData([
+                "incentive": incentive
+                ],merge: true
+            ) { (error) in
+                if let e = error {
+                    print("There was an issue saving incentive to respective mentor \(e.localizedDescription)")
+                }
+            }
+        }
     }
     
     @IBAction func checkInButtonPressed(_ sender: UIButton) {
@@ -107,7 +119,7 @@ class MentorTableViewController: UIViewController {
      
      } */
     
-    /*func 
+    /*func
      
      */
     

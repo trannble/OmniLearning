@@ -24,6 +24,7 @@ class RegisterViewController: UIViewController {
     
     var pickerData = ["Student", "Mentor"]
     var userType = ""
+    var savedEmail = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +54,26 @@ class RegisterViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToStudentFromRegister" {
+            let destinationVC = segue.destination as! StudentTableViewController
+            destinationVC.email = savedEmail
+        } else if segue.identifier == "goToMentorFromRegister" {
+            let destinationVC = segue.destination as! MentorTableViewController
+            destinationVC.email = savedEmail
+        }
+        
+    }
+    
     
 //MARK: - Register New Student
     @IBAction func registerStudentButtonPressed(_ sender: UIButton) {
     
         if let email = email.text, let password = password.text {
             
+            savedEmail = email
+                    
             Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                 if let e = error {
                     self.registerError.text = e.localizedDescription
@@ -78,29 +93,31 @@ class RegisterViewController: UIViewController {
                 }
             }
             
+            self.performSegue(withIdentifier: "goToStudentFromRegister", sender: self)
+
             
-            db.collection("users").addSnapshotListener { (querrySnapshot, error) in
-                
-                if let e = error {
-                    print("Error getting userType: \(e.localizedDescription)")
-                } else {
-                    if let snapshotDocuments = querrySnapshot?.documents {
-                        for document in snapshotDocuments {
-                            let data = document.data()
-                            
-                            if let savedUserType = data["userType"] as? String {
-                                
-                                func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-                                    let destinationVC = segue.destination as! StudentTableViewController
-                                    destinationVC.email = self.email.text!
-                                }
-                                
-                                self.performSegue(withIdentifier: "goToStudentFromRegister", sender: self)
-                            }
-                        }
-                    }
-                }
-            }
+//            db.collection("users").addSnapshotListener { (querrySnapshot, error) in
+//
+//                if let e = error {
+//                    print("Error getting userType: \(e.localizedDescription)")
+//                } else {
+//                    if let snapshotDocuments = querrySnapshot?.documents {
+//                        for document in snapshotDocuments {
+//                            let data = document.data()
+//                            self.performSegue(withIdentifier: "goToStudentFromRegister", sender: self)
+//
+////                            if let savedUserType = data["userType"] as? String {
+////
+//////                                func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+//////                                    let destinationVC = segue.destination as! StudentTableViewController
+//////                                    destinationVC.email = email
+//////                                }
+////
+////                            }
+//                        }
+//                    }
+//                }
+//            }
         }
     }
     
@@ -109,6 +126,8 @@ class RegisterViewController: UIViewController {
     @IBAction func registerMentorButtonPressed(_ sender: UIButton) {
         
         if let email = email.text, let password = password.text {
+            
+            savedEmail = email
             
             Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                 if let e = error {
@@ -129,29 +148,31 @@ class RegisterViewController: UIViewController {
                 }
             }
             
+            self.performSegue(withIdentifier: "goToMentorFromRegister", sender: self)
+
             
-            db.collection("users").addSnapshotListener { (querrySnapshot, error) in
-                
-                if let e = error {
-                    print("Error getting userType: \(e.localizedDescription)")
-                } else {
-                    if let snapshotDocuments = querrySnapshot?.documents {
-                        for document in snapshotDocuments {
-                            let data = document.data()
-                            
-                            if let savedUserType = data["userType"] as? String {
-                                
-                                func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-                                    let destinationVC = segue.destination as! MentorTableViewController
-                                    destinationVC.email = self.email.text!
-                                }
-                                
-                                self.performSegue(withIdentifier: "goToMentorFromRegister", sender: self)
-                            }
-                        }
-                    }
-                }
-            }
+//            db.collection("users").addSnapshotListener { (querrySnapshot, error) in
+//
+//                if let e = error {
+//                    print("Error getting userType: \(e.localizedDescription)")
+//                } else {
+//                    if let snapshotDocuments = querrySnapshot?.documents {
+//                        for document in snapshotDocuments {
+//                            let data = document.data()
+//
+//                            if let savedUserType = data["userType"] as? String {
+//
+////                                func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+////                                    let destinationVC = segue.destination as! MentorTableViewController
+////                                    destinationVC.email = email
+////                                }
+//
+//                                self.performSegue(withIdentifier: "goToMentorFromRegister", sender: self)
+//                            }
+//                        }
+//                    }
+//                }
+//            }
         }
         
     }
