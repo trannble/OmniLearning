@@ -11,6 +11,11 @@ OmniLearning matches students with mentors and provides unique features for each
 
 2) Mentors (e.g. teachers, tutors, parents, older siblings): create and assign a personalized learning schedule across different platforms, send incentives and rewards as motivation, help students, receive real-time updates on students' progress
 
+# Demo
+https://www.youtube.com/watch?v=25pzyAPbvq0
+
+![Image of OmniLearning](https://github.com/trannble/OmniLearning/blob/master/onmilearning%20flyer.png?raw=true)
+
 # How to run on your phone
 
 1) Clone project to Xcode
