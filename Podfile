@@ -9,6 +9,5 @@ use_frameworks!
 
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
-pod 'SwipeCellKit'
 
 end
