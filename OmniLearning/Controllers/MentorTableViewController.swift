@@ -124,8 +124,8 @@ class MentorTableViewController: UIViewController {
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        //delete incentive
-        //delete all tasks documents
+        //delete cocoapod swipe
+        //delete 
     }
     
     func loadTasks() {
