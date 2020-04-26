@@ -28,7 +28,8 @@ class MentorTableViewController: UIViewController {
         
         taskTableView.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "prototypeCell")
         
-        //loadTasks()
+        loadTasks()
+        taskTableView.separatorStyle = .none
         
     }
     
@@ -53,25 +54,31 @@ class MentorTableViewController: UIViewController {
         
         let action = UIAlertAction(title: "Add Assignment", style: .default) { (action) in
             
+            var taskNumber = 0
+
             if let description = descriptionTextField.text, let time = timeTextField.text, let sender = Auth.auth().currentUser?.email {
                 let newTask = Task(sender: sender, description: description, time: time)
                 self.task.append(newTask)
-                
-                //                self.db.collection("users").document(email).setData([
-                //                    "sender": sender,
-                //                    "time": time,
-                //                    "description": description,
-                //                    ], merge: true)
-                //                { (error) in
-                //                    if let e = error {
-                //                        print("There was an issue saving data to firestore, \(e) ")
-                //                        self.errorMessage.text = "Your data was not saved and sent, \(e.localizedDescription)"
-                //                    } else {
-                //                        print("Successfully saved data.")
-                //                    }
-                //                }
-                
+                                
+                self.db.collection("users").document(self.email).collection("task").document("task\(taskNumber)").setData([
+                    "sender": sender,
+                    "time": time,
+                    "description": description,
+                    "timeCreated":  Date().timeIntervalSince1970
+                ]){ (error) in
+                    if let e = error {
+                        print("There was an issue saving data to firestore, \(e) ")
+                        self.errorMessage.text = "Your data was not saved and sent, \(e.localizedDescription)"
+                    } else {
+                        print("Successfully saved data.")
+                    }
+                }
             }
+            
+            taskNumber += 1
+            //fix it so that cells aren't recycled
+            
+            self.taskTableView.reloadData()
         }
         
         
@@ -91,37 +98,73 @@ class MentorTableViewController: UIViewController {
     }
     
     @IBAction func logOutButtonPressed(_ sender: UIButton) {
+        do {
+            try Auth.auth().signOut()
+            self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+            errorMessage.text = signOutError.localizedDescription
+        }
     }
     
     @IBAction func assignButtonPressed(_ sender: UIButton) {
         
         if let incentive = incentive.text {
-            print(email)
-            db.collection("users").document(email).setData([
-                "incentive": incentive
-                ],merge: true
-            ) { (error) in
+            
+            errorMessage.textColor = UIColor.black
+            errorMessage.numberOfLines = 0
+            errorMessage.text = "Successfully assigned, check back for progress!"
+            db.collection("users").document(email).setData(["incentive": incentive], merge: true)
+            { (error) in
                 if let e = error {
-                    print("There was an issue saving incentive to respective mentor \(e.localizedDescription)")
+                    print("There was an issue saving new assignment to respective mentor account \(e.localizedDescription)")
+                    self.errorMessage.text = e.localizedDescription
                 }
             }
         }
     }
     
     @IBAction func checkInButtonPressed(_ sender: UIButton) {
+        //goes to FlashChat, can send images
+        //if don't have time to code this part -> just link to facebook messenger
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
+        //delete incentive
+        //delete all tasks documents
     }
     
+    func loadTasks() {
+        
+        db.collection("users").document(email).collection("task")
+            .order(by: "timeCreated")
+            .addSnapshotListener { (querySnapshot, error) in
+                
+                self.task = []
+                
+                if let e = error {
+                    print("There was an issue loading tasks from database, \(e)")
+                    return
+                } else {
+                    if let snapshotDocuments = querySnapshot?.documents {
+                        for doc in snapshotDocuments {
+                            let data = doc.data()
+                            if let description = data["description"] as? String, let time = data["time"] as? String, let sender = data["sender"] as? String {
+                                let newTask = Task(sender: sender, description: description, time: time)
+                                self.task.append(newTask)
+                                print(self.task)
+                                
+                                DispatchQueue.main.async {
+                                    self.taskTableView.reloadData()
+                                    print("Reloaded new data")
+                                }
+                            }
+                        }
+                    }
+                }
+        }
+    }
     
-    /* func loadTask() {
-     
-     } */
-    
-    /*func
-     
-     */
     
 }
 
