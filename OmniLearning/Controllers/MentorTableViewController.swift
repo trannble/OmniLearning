@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import SwipeCellKit
 
 class MentorTableViewController: UIViewController {
     
@@ -168,6 +167,7 @@ class MentorTableViewController: UIViewController {
                 
                 if let e = error {
                     print("There was an issue loading tasks from database, \(e)")
+                    self.errorMessage.text = "\(e.localizedDescription)"
                     return
                 } else {
                     if let snapshotDocuments = querySnapshot?.documents {

@@ -66,62 +66,42 @@ class RegisterViewController: UIViewController {
         
     }
     
-    
-//MARK: - Register New Student
+    //MARK: - Register New Student
     @IBAction func registerStudentButtonPressed(_ sender: UIButton) {
-    
+        
         if let email = email.text, let password = password.text {
             
             savedEmail = email
-                    
-            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-                if let e = error {
-                    self.registerError.text = e.localizedDescription
-                } else {
-                    if let matchEmail = self.mentorOrStudentEmail.text {
-                        self.db.collection("users").document(email).setData ([
-                            "matchEmail": matchEmail,
-                            "userType": self.userType
-                        ]) { (error) in
-                            if let e = error {
-                                print("There was an issue saving student email and user type to firestore, \(e.localizedDescription)")
-                            } else {
-                                print("Successfully saved with ID")
+            
+            if userType == "Student" {
+                Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                    if let e = error {
+                        self.registerError.text = e.localizedDescription
+                    } else {
+                        if let matchEmail = self.mentorOrStudentEmail.text {
+                            self.db.collection("users").document(email).setData ([
+                                "matchEmail": matchEmail,
+                                "userType": self.userType
+                            ]) { (error) in
+                                if let e = error {
+                                    print("There was an issue saving student email and user type to firestore, \(e.localizedDescription)")
+                                } else {
+                                    print("Successfully saved with ID")
+                                }
                             }
                         }
                     }
                 }
+                
+                self.performSegue(withIdentifier: "goToStudentFromRegister", sender: self)
+            } else {
+                registerError.text = "You cannot select Mentor and register as Student."
             }
             
-            self.performSegue(withIdentifier: "goToStudentFromRegister", sender: self)
-
-            
-//            db.collection("users").addSnapshotListener { (querrySnapshot, error) in
-//
-//                if let e = error {
-//                    print("Error getting userType: \(e.localizedDescription)")
-//                } else {
-//                    if let snapshotDocuments = querrySnapshot?.documents {
-//                        for document in snapshotDocuments {
-//                            let data = document.data()
-//                            self.performSegue(withIdentifier: "goToStudentFromRegister", sender: self)
-//
-////                            if let savedUserType = data["userType"] as? String {
-////
-//////                                func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-//////                                    let destinationVC = segue.destination as! StudentTableViewController
-//////                                    destinationVC.email = email
-//////                                }
-////
-////                            }
-//                        }
-//                    }
-//                }
-//            }
         }
     }
     
-//MARK: - Register New Mentor
+    //MARK: - Register New Mentor
     
     @IBAction func registerMentorButtonPressed(_ sender: UIButton) {
         
@@ -129,55 +109,36 @@ class RegisterViewController: UIViewController {
             
             savedEmail = email
             
-            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-                if let e = error {
-                    self.registerError.text = e.localizedDescription
-                } else {
-                    if let matchEmail = self.mentorOrStudentEmail.text {
-                        self.db.collection("users").document(email).setData ([
-                            "matchEmail": matchEmail,
-                            "userType": self.userType
-                        ]) { (error) in
-                            if let e = error {
-                                print("There was an issue saving mentor email and user type to firestore, \(e.localizedDescription)")
-                            } else {
-                                print("Successfully saved with ID")
+            if userType == "Mentor" {
+                Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                    if let e = error {
+                        self.registerError.text = e.localizedDescription
+                    } else {
+                        if let matchEmail = self.mentorOrStudentEmail.text {
+                            self.db.collection("users").document(email).setData ([
+                                "matchEmail": matchEmail,
+                                "userType": self.userType
+                            ]) { (error) in
+                                if let e = error {
+                                    print("There was an issue saving mentor email and user type to firestore, \(e.localizedDescription)")
+                                } else {
+                                    print("Successfully saved with ID")
+                                }
                             }
                         }
                     }
                 }
+                
+                self.performSegue(withIdentifier: "goToMentorFromRegister", sender: self)
+            } else {
+                registerError.text = "You cannot select Student and register as Mentor."
             }
-            
-            self.performSegue(withIdentifier: "goToMentorFromRegister", sender: self)
-
-            
-//            db.collection("users").addSnapshotListener { (querrySnapshot, error) in
-//
-//                if let e = error {
-//                    print("Error getting userType: \(e.localizedDescription)")
-//                } else {
-//                    if let snapshotDocuments = querrySnapshot?.documents {
-//                        for document in snapshotDocuments {
-//                            let data = document.data()
-//
-//                            if let savedUserType = data["userType"] as? String {
-//
-////                                func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-////                                    let destinationVC = segue.destination as! MentorTableViewController
-////                                    destinationVC.email = email
-////                                }
-//
-//                                self.performSegue(withIdentifier: "goToMentorFromRegister", sender: self)
-//                            }
-//                        }
-//                    }
-//                }
-//            }
         }
         
     }
     
 }
+
 
 //MARK: - Picker View
 
