@@ -54,11 +54,11 @@ class WelcomeViewController: UIViewController {
     //MARK: - Redirect To Register or Log In
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        
+        //performs segue
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-
+        //performs segue
     }
     
     

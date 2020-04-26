@@ -18,8 +18,9 @@ class StudentTableViewController: UIViewController {
     @IBOutlet weak var taskTableView: UITableView!
     @IBOutlet weak var errorMessage: UILabel!
     
-    var email = ""
+    var email = "" //mentoremail
     var task: [Task] = []
+    var studentEmail = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,9 +58,18 @@ class StudentTableViewController: UIViewController {
         }
     }
     
-    @IBAction func askAndSubmitButtonPressed(_ sender: UIButton) {
-        //goToFlashChat
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToMessageFromStudent" {
+            let destinationVC = segue.destination as! ChatViewController
+            destinationVC.userEmail = email
+        }
     }
+    
+    @IBAction func askAndSubmitButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToMessageFromStudent", sender: self)
+    }
+    
     
     func loadIncentive() {
         db.collection("users").document(email).getDocument { (document, error) in

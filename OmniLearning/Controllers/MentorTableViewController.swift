@@ -118,9 +118,16 @@ class MentorTableViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToMessageFromMentor" {
+            let destinationVC = segue.destination as! ChatViewController
+            destinationVC.userEmail = email
+        }
+    }
+    
     @IBAction func checkInButtonPressed(_ sender: UIButton) {
-        //goes to FlashChat, can send images
-        //if don't have time to code this part -> just link to facebook messenger
+        performSegue(withIdentifier: "goToMessageFromMentor", sender: self)
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {

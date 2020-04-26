@@ -21,6 +21,7 @@ class LogInViewController: UIViewController {
     
     var savedEmail = ""  //always the mentor email
     var userType = ""
+    var studentEmail = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,7 @@ class LogInViewController: UIViewController {
         if identifier == "goToStudentFromLogIn" {
             let destinationVC = segue.destination as! StudentTableViewController
             destinationVC.email = savedEmail
+            destinationVC.studentEmail = studentEmail
         } else if identifier == "goToMentorFromLogIn" {
             let destinationVC = segue.destination as! MentorTableViewController
             destinationVC.email = savedEmail
@@ -56,6 +58,8 @@ class LogInViewController: UIViewController {
     @IBAction func studentLogInButtonPressed(_ sender: UIButton) {
         
         if let email = email.text, let password = password.text {
+            
+            studentEmail = email
             
             db.collection("users").document(email).getDocument { (document, error) in
                 if let document = document, document.exists {

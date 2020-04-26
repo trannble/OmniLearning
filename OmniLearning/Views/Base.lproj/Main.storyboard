@@ -237,6 +237,7 @@
                         <outlet property="errorMessage" destination="7Gk-4Q-F92" id="Wxn-u3-YY9"/>
                         <outlet property="incentive" destination="lbI-2K-qlg" id="W7c-n1-YTZ"/>
                         <outlet property="taskTableView" destination="Lwi-D3-hKo" id="KDJ-dE-HJl"/>
+                        <segue destination="eml-PM-NGT" kind="show" identifier="goToMessageFromStudent" id="P84-UO-WVT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMC-fT-abM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -462,17 +463,68 @@
                         <outlet property="errorMessage" destination="swK-Ue-dBl" id="LEk-9l-CDm"/>
                         <outlet property="incentive" destination="fXm-AB-YIW" id="1mS-CK-TJV"/>
                         <outlet property="taskTableView" destination="nnA-L8-35v" id="cbW-8e-sVU"/>
+                        <segue destination="eml-PM-NGT" kind="show" identifier="goToMessageFromMentor" id="8p6-s4-Ry0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WuB-M3-70y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4173.913043478261" y="-167.41071428571428"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="6NU-ui-Tv9">
+            <objects>
+                <viewController id="eml-PM-NGT" customClass="ChatViewController" customModule="OmniLearning" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uy2-YW-Xgq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0iw-Zx-dsQ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="746"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSE-b6-lFr">
+                                <rect key="frame" x="0.0" y="754" width="414" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="LightPurple"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Send a question or completed task..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P7O-7r-6q3" userLabel="Message Textfield">
+                                <rect key="frame" x="20" y="774" width="342" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxp-Kr-ngx" userLabel="Send">
+                                <rect key="frame" x="370" y="772" width="38" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="Yellow"/>
+                                <state key="normal" image="paperplane.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendPressed:" destination="eml-PM-NGT" eventType="touchUpInside" id="XqK-dr-ijy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="228-9S-xNQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aep-CY-ia9"/>
+                    <connections>
+                        <outlet property="messageTextField" destination="P7O-7r-6q3" id="Pbb-zE-kx9"/>
+                        <outlet property="tableView" destination="0iw-Zx-dsQ" id="xqD-NY-Wne"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ouS-Kk-w5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5166.666666666667" y="279.91071428571428"/>
+        </scene>
     </scenes>
     <resources>
         <image name="OLIconRound" width="512" height="512"/>
         <image name="WelcomeBackground" width="653" height="1199"/>
         <image name="launchScreen" width="653" height="1199"/>
+        <image name="paperplane.fill" catalog="system" width="64" height="60"/>
         <image name="plus" catalog="system" width="64" height="56"/>
         <namedColor name="DarkPurple">
             <color red="0.47499999403953552" green="0.36899998784065247" blue="0.53299999237060547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -488,6 +540,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="P84-UO-WVT"/>
         <segue reference="3NO-VP-rSa"/>
         <segue reference="HhN-by-lpB"/>
     </inferredMetricsTieBreakers>

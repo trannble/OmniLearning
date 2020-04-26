@@ -13,6 +13,10 @@
 		0F9055332453E891000BCE72 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9055322453E891000BCE72 /* Task.swift */; };
 		0F905536245420A9000BCE72 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F905534245420A9000BCE72 /* TaskCell.swift */; };
 		0F905537245420A9000BCE72 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F905535245420A9000BCE72 /* TaskCell.xib */; };
+		0FCFB79F24556F4600C2C865 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFB79E24556F4600C2C865 /* Message.swift */; };
+		0FCFB7A1245571C500C2C865 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFB7A0245571C500C2C865 /* ChatViewController.swift */; };
+		0FCFB7A62455735F00C2C865 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCFB7A42455735F00C2C865 /* MessageCell.swift */; };
+		0FCFB7A72455735F00C2C865 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FCFB7A52455735F00C2C865 /* MessageCell.xib */; };
 		0FF9C0B2244FC56C00C238E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B1244FC56C00C238E0 /* AppDelegate.swift */; };
 		0FF9C0B4244FC56C00C238E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B3244FC56C00C238E0 /* SceneDelegate.swift */; };
 		0FF9C0B6244FC56C00C238E0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF9C0B5244FC56C00C238E0 /* WelcomeViewController.swift */; };
@@ -33,6 +37,10 @@
 		0F9055322453E891000BCE72 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		0F905534245420A9000BCE72 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		0F905535245420A9000BCE72 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
+		0FCFB79E24556F4600C2C865 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		0FCFB7A0245571C500C2C865 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		0FCFB7A42455735F00C2C865 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		0FCFB7A52455735F00C2C865 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		0FF9C0AE244FC56C00C238E0 /* OmniLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF9C0B1244FC56C00C238E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF9C0B3244FC56C00C238E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				0F9055322453E891000BCE72 /* Task.swift */,
+				0FCFB79E24556F4600C2C865 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,6 +124,7 @@
 				0FF9C0D4244FF39600C238E0 /* LogInViewController.swift */,
 				0F1CD46624515D9B007BA59E /* MentorTableViewController.swift */,
 				0F1CD46A24515E03007BA59E /* StudentTableViewController.swift */,
+				0FCFB7A0245571C500C2C865 /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -125,6 +135,8 @@
 				0FF9C0B7244FC56C00C238E0 /* Main.storyboard */,
 				0F905534245420A9000BCE72 /* TaskCell.swift */,
 				0F905535245420A9000BCE72 /* TaskCell.xib */,
+				0FCFB7A42455735F00C2C865 /* MessageCell.swift */,
+				0FCFB7A52455735F00C2C865 /* MessageCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +232,7 @@
 				0F905537245420A9000BCE72 /* TaskCell.xib in Resources */,
 				0FF9C0BB244FC56D00C238E0 /* Assets.xcassets in Resources */,
 				0FF9C0CF244FE85D00C238E0 /* Capriola-Regular.ttf in Resources */,
+				0FCFB7A72455735F00C2C865 /* MessageCell.xib in Resources */,
 				0FF9C0B9244FC56C00C238E0 /* Main.storyboard in Resources */,
 				0F1CD4652451390D007BA59E /* GoogleService-Info.plist in Resources */,
 			);
@@ -275,12 +288,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF9C0B6244FC56C00C238E0 /* WelcomeViewController.swift in Sources */,
+				0FCFB7A62455735F00C2C865 /* MessageCell.swift in Sources */,
 				0F1CD46C24515E03007BA59E /* StudentTableViewController.swift in Sources */,
+				0FCFB7A1245571C500C2C865 /* ChatViewController.swift in Sources */,
 				0FF9C0B2244FC56C00C238E0 /* AppDelegate.swift in Sources */,
 				0F1CD46824515D9B007BA59E /* MentorTableViewController.swift in Sources */,
 				0FF9C0B4244FC56C00C238E0 /* SceneDelegate.swift in Sources */,
 				0FF9C0D5244FF39600C238E0 /* LogInViewController.swift in Sources */,
 				0F9055332453E891000BCE72 /* Task.swift in Sources */,
+				0FCFB79F24556F4600C2C865 /* Message.swift in Sources */,
 				0F905536245420A9000BCE72 /* TaskCell.swift in Sources */,
 				0FF9C0D3244FF26000C238E0 /* RegisterViewController.swift in Sources */,
 			);
