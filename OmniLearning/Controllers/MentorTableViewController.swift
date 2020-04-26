@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwipeCellKit
 
 class MentorTableViewController: UIViewController {
     
@@ -124,8 +125,37 @@ class MentorTableViewController: UIViewController {
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        //delete cocoapod swipe
-        //delete 
+               
+        var taskNumber = 1
+
+        for _ in 1...task.count {
+                        
+            if taskNumber <= task.count {
+                
+                //delete in firestore
+                db.collection("users").document(email).collection("task").document("task\(taskNumber)").delete() { error in
+                    
+                    if let e = error {
+                        print("Error removing document: \(e)")
+                        self.errorMessage.text = e.localizedDescription
+                    } else {
+                        self.errorMessage.textColor = UIColor.black
+                        self.errorMessage.text = "Ready for a new day of learning!"
+                    }
+                }
+                
+                taskNumber += 1
+        
+            } else {
+                return
+            }
+        }
+        
+        task = []
+        
+        DispatchQueue.main.async {
+            self.taskTableView.reloadData()
+        }
     }
     
     func loadTasks() {
@@ -146,11 +176,9 @@ class MentorTableViewController: UIViewController {
                             if let description = data["description"] as? String, let time = data["time"] as? String, let sender = data["sender"] as? String {
                                 let newTask = Task(sender: sender, description: description, time: time)
                                 self.task.append(newTask)
-                                print(self.task)
                                 
                                 DispatchQueue.main.async {
                                     self.taskTableView.reloadData()
-                                    print("Reloaded new data")
                                 }
                             }
                         }
@@ -177,7 +205,6 @@ extension MentorTableViewController: UITableViewDataSource {
         cell.timeLabel?.numberOfLines = 0
         return cell
     }
-    
 }
 
 
