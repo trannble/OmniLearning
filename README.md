@@ -1,7 +1,7 @@
 # OmniLearning
 Bridging the digital education gap between students, educators, and parents.
 
-#Inspiration
+# Inspiration
 There are thousands of online educational platforms. However, there isn't an easy way for parents, educators, and students to stay organized and engaged across the many different platforms. During no-school days such as the COVID19 lockdown, summers, or weekends, many students feel highly unmotivated without a rigid, organized schedule and a mentor to support them. OmniLearning, an iOS app, was inspired by these real-life issues.
 
 # What it does
