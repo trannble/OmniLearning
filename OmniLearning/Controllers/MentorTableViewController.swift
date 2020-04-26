@@ -54,13 +54,11 @@ class MentorTableViewController: UIViewController {
         
         let action = UIAlertAction(title: "Add Assignment", style: .default) { (action) in
             
-            var taskNumber = 0
-
             if let description = descriptionTextField.text, let time = timeTextField.text, let sender = Auth.auth().currentUser?.email {
                 let newTask = Task(sender: sender, description: description, time: time)
                 self.task.append(newTask)
                                 
-                self.db.collection("users").document(self.email).collection("task").document("task\(taskNumber)").setData([
+                self.db.collection("users").document(self.email).collection("task").document("task\(self.task.count)").setData([
                     "sender": sender,
                     "time": time,
                     "description": description,
@@ -74,10 +72,7 @@ class MentorTableViewController: UIViewController {
                     }
                 }
             }
-            
-            taskNumber += 1
-            //fix it so that cells aren't recycled
-            
+                        
             self.taskTableView.reloadData()
         }
         
@@ -110,7 +105,6 @@ class MentorTableViewController: UIViewController {
     @IBAction func assignButtonPressed(_ sender: UIButton) {
         
         if let incentive = incentive.text {
-            
             errorMessage.textColor = UIColor.black
             errorMessage.numberOfLines = 0
             errorMessage.text = "Successfully assigned, check back for progress!"
